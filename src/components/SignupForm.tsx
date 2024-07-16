@@ -34,8 +34,15 @@ const SignupForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof formValidation>) => {
-    console.log(values);
     form.reset();
+    toast("Your Form Received!", {
+      description: "Your Form was successfully submitted",
+      className: "group-[.toaster]:bg-green-200",
+      action: {
+        label: "Cancel",
+        onClick: () => console.log("Cancel"),
+      },
+    });
   };
   return (
     <>
@@ -100,7 +107,9 @@ const SignupFormField: React.FC<SignupFormFieldProps> = ({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-xl ">{label}</FormLabel>
+          <FormLabel className="text-base md:text-lg text-blue-700">
+            {label}
+          </FormLabel>
           <FormControl>
             <Input
               placeholder={placeholder}
@@ -111,7 +120,7 @@ const SignupFormField: React.FC<SignupFormFieldProps> = ({
           {/* showing error message */}
           {description && <FormDescription>{description}</FormDescription>}
           {/* above commit kiva hua part show karvana  */}
-          <FormMessage />
+          <FormMessage className="text-xs md:text-sm " />
         </FormItem>
       )}
     />

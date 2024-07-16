@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Andika } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const andika = Andika({ subsets: ["latin"], weight: "400" });
+const outfit = Outfit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Validation using zod and shadcn/ui",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={andika.className}>
+      <body className={outfit.className}>
         <main> {children}</main>
         <Toaster />
       </body>
